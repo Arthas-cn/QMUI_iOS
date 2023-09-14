@@ -163,13 +163,13 @@
 
 @implementation QMUIStringPrivate (Safety)
 
-+ (void)load {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [self qmuisafety_NSString];
-        [self qmuisafety_NSAttributedString];
-    });
-}
+//+ (void)load {
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        [self qmuisafety_NSString];
+//        [self qmuisafety_NSAttributedString];
+//    });
+//}
 
 + (void)qmuisafety_NSString {
     OverrideImplementation([NSString class], @selector(substringFromIndex:), ^id(__unsafe_unretained Class originClass, SEL originCMD, IMP (^originalIMPProvider)(void)) {
