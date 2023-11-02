@@ -506,13 +506,13 @@
     self.appearCompletionBlock = completion;
     self.previousKeyWindow = UIApplication.sharedApplication.keyWindow;
     if (!self.window) {
-        self.window = [[QMUIModalPresentationWindow alloc] init];
+        self.window = [[QMUIModalPresentationWindow alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
         self.window.windowLevel = UIWindowLevelQMUIAlertView;
         self.window.backgroundColor = UIColorClear;// 避免横竖屏旋转时出现黑色
+        self.window.hidden = NO;
         [self updateWindowStatusBarCapture];
     }
     self.window.rootViewController = self;
-    [self.window makeKeyAndVisible];
 }
 
 - (void)hidingAnimationWithCompletion:(void (^)(BOOL))completion {
