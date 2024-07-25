@@ -112,7 +112,7 @@
 
 /// 是否横竖屏
 /// 用户界面横屏了才会返回YES
-#define IS_LANDSCAPE UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication.statusBarOrientation)
+#define IS_LANDSCAPE isLandscapeOrientation()
 /// 无论支不支持横屏，只要设备横屏了，就会返回YES
 #define IS_DEVICE_LANDSCAPE UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation])
 

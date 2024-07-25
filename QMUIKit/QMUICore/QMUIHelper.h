@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 // TODO: molice 等废弃 qmui_badgeCenterOffset 系列接口后再删除
 extern const CGPoint QMUIBadgeInvalidateOffset;
 
+BOOL isLandscapeOrientation(void);
+
 @interface QMUIHelper : NSObject
 
 + (instancetype)sharedInstance;
