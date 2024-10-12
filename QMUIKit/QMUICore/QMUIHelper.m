@@ -27,6 +27,29 @@
 
 NSString *const kQMUIResourcesBundleName = @"QMUIResources";
 
+
+BOOL isLandscapeOrientation(void) {
+    if (@available(iOS 13.0, *)) {
+        // 对于 iOS 13 及以上版本，使用 UIWindowScene 的 interfaceOrientation 属性
+        UIWindowScene *windowScene = nil;
+        for (UIScene *scene in UIApplication.sharedApplication.connectedScenes) {
+            if ([scene isKindOfClass:[UIWindowScene class]]) {
+                windowScene = (UIWindowScene *)scene;
+                break;
+            }
+        }
+        if (windowScene) {
+            return UIInterfaceOrientationIsLandscape(windowScene.interfaceOrientation);
+        }
+    } else {
+        // 对于 iOS 13 以下版本，使用过时的 statusBarOrientation 属性
+        return UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication.statusBarOrientation);
+    }
+    return NO;
+}
+
+
+
 @interface _QMUIPortraitViewController : UIViewController
 @end
 

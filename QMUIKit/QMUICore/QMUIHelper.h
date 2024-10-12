@@ -17,6 +17,8 @@
 #import <UIKit/UIKit.h>
 #import "QMUICommonDefines.h"
 
+BOOL isLandscapeOrientation(void);
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface QMUIHelper : NSObject
