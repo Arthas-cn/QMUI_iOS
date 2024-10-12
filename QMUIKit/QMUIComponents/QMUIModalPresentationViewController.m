@@ -98,6 +98,7 @@
     
     self.shouldDimmedAppAutomatically = YES;
     self.onlyRespondsToKeyboardEventFromDescendantViews = YES;
+    self.shouldBecomeKeyWindow = YES;
     self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     self.modalPresentationStyle = UIModalPresentationCustom;
     
@@ -513,6 +514,11 @@
         [self updateWindowStatusBarCapture];
     }
     self.window.rootViewController = self;
+    if (self.shouldBecomeKeyWindow) {
+        [self.window makeKeyAndVisible];
+    } else {
+        self.window.hidden = NO;
+    }
 }
 
 - (void)hidingAnimationWithCompletion:(void (^)(BOOL))completion {
